@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>三階段數據自動化專案</title>
+
+  <style>
+    /* ====== 色票（取自 yamadute-nosegawa.com 之實際取色） ====== */
+    :root {
+      --bg-main: #f7f4ef;        /* 溫潤米白 */
+      --title-brown: #4b3b2a;    /* 深木棕 */
+      --accent-green: #7c8574;   /* 灰綠 */
+      --text-gray: #4f4f4f;      /* 柔灰 */
+      --card-bg: #fffcf7;        /* 奶油白 */
+      --card-border: #e7e1d5;    /* 淡土色 */
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      background: var(--bg-main);
+      font-family: "Noto Serif HK Black", sans-serif;
+      color:#4f4f4f;
+      line-height: 1.7;
+    }
+
+    header {
+      font-family: "漢儀新蒂油畫棒","Noto Serif HK Black", sans-serif;
+      text-align: center;
+      padding: 60px 20px 40px;
+    }
+
+    h1 {
+      font-size: 2.6rem;
+      margin: 0 0 10px;
+      color: var(--title-brown);
+      letter-spacing: 1px;
+      font-weight: 700;
+    }
+
+    header p {
+      font-size: 1.2rem;
+      color: #7c8574;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 0 20px 60px;
+      display: grid;
+      gap: 35px;
+    }
+
+    @media (min-width: 900px) {
+      .container {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    .card {
+      background: var(--card-bg);
+      padding: 35px;
+      border-radius: 22px;
+      border: 1px solid var(--card-border);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+    }
+
+    .card h2 {
+      margin-top: 0;
+      margin-bottom: 15px;
+      font-size: 1.6rem;
+      font-weight: 600;
+      color: var(--title-brown);
+    }
+
+    /* 主要段落 */
+    .card p {
+      font-family: "Noto Sans TC Medium", sans-serif;
+      margin: 0;
+      font-size: 1rem;
+    }
+
+    /* p2: 紅字小標題 */
+    .p2 {
+      font-family: "Noto Serif TC", sans-serif;
+      margin: 0;
+      color: #C00000;
+      font-size: 1rem;
+      font-weight: 600;
+    }
+
+    /* p3: 次段落 */
+    .p3 {
+      font-family: "Noto Serif TC", sans-serif;
+      margin: 0;
+      font-size: 1rem;
+    }
+
+    /* 手風琴外層 */
+    .accordion {
+      margin: 15px 0;
+    }
+
+    /* 隱藏 checkbox */
+    .accordion input {
+      display: none;
+    }
+
+    /* 標題列 */
+    .acc-title {
+      display: block;
+      padding: 15px 20px;
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 10px;
+      cursor: pointer;
+      font-weight: 600;
+      color: var(--title-brown);
+      transition: background 0.2s;
+    }
+
+    /* hover 效果 */
+    .acc-title:hover {
+      background: #f0ece4;
+    }
+
+    /* 內容區塊 */
+    .acc-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height .35s ease;
+      background: #fffcf7;
+      border-left: 3px solid var(--accent-green);
+      margin-top: 5px;
+      padding: 0 20px;
+      border-radius: 5px;
+    }
+
+    /* 展開 */
+    .accordion input:checked ~ .acc-content {
+      max-height: 200px;
+      padding: 15px 20px;
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+  <header>
+    <h1>用數據說話<br>データでものをいおう</h1>
+    <p>三階段數據自動化專案</p>
+  </header>
+
+  <!-- 手風琴 -->
+  <div class="accordion">
+    <input type="checkbox" id="acc1">
+    <label for="acc1" class="acc-title">漂亮的報表是？</label>
+    <div class="acc-content">
+      <p>ERP系統database → SQL查詢 → Power BI 資料串接+報表呈現。</p>
+    </div>
+  </div>
+
+  <div class="accordion">
+    <input type="checkbox" id="acc2">
+    <label for="acc2" class="acc-title">有了報表之後？</label>
+    <div class="acc-content">
+      <p>Power Automate 自動化產生月報。</p>
+    </div>
+  </div>
+
+  <div class="accordion">
+    <input type="checkbox" id="acc3">
+    <label for="acc3" class="acc-title">常見問題？</label>
+    <div class="acc-content">
+      <p>Copilot Agent智慧小客服。</p>
+    </div>
+  </div>
+
+  <!-- 卡片區 -->
+  <div class="container">
+
+    <!-- Stage 1 -->
+    <div class="card">
+      <h2>第一階段：ERP → SQL → Power BI</h2>
+      <p>以 SQL 從 ERP 撈取核心營運資料，建立可維護的資料 View，並串接至 Power BI，打造一致、可視化的分析模型。(唯讀模式)</p>
+      <br>
+      <p class="p2">key experience</p>
+      
+      <p class="p3">戴明計畫：用數據說話</p>
+    </div>
+
+    <!-- Stage 2 -->
+    <div class="card">
+      <h2>第二階段：Power Automate 自動生成月報</h2>
+      <p>使用 Power Automate 定期刷新 Dataset、匯出 PDF/PPTX 並自動寄送，讓月報產生流程完全自動化。</p>
+      <br>
+      <p class="p2">key experience</p>
+      
+      <p class="p3">我曾把原本需要一個小時的月報製作，縮短成 10 分鐘！</p>
+    </div>
+
+    <!-- Stage 3 -->
+    <div class="card">
+      <h2>第三階段：Copilot Agent 智慧報表機器人</h2>
+      <p>讓 Copilot Agent 讀取 Power BI 最新資料，使用者可直接以自然語言查詢業績、庫存與各項指標，打造企業 AI 智能資料助理。</p>
+      <br>
+      <p class="p2">key experience</p>
+      
+      <p class="p3">「後工程就是我的客戶」</p>
+    </div>
+
+  </div>
+
+</body>
+</html>
+
